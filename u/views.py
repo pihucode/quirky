@@ -2,15 +2,8 @@
 # from django.urls import reverse_lazy
 # from django.views import generic
 # from users.forms import CustomUserCreationForm
-# from django.template.response import TemplateResponse #test
 from django.shortcuts import render
 from users.models import CustomUser
-
-#test
-# def testdex(request):
-#     args = {}
-#     args['mytext'] = "<b>hello world</b>"
-#     return TemplateResponse(request, 'profile.html', args)
 
 # displays profile of the current logged in User
 # class ProfileView(generic.CreateView):
@@ -18,6 +11,9 @@ from users.models import CustomUser
 #     template_name = 'profile.html'
 
 # displays profile of the username passed in URL
+# cannot use keyword 'user', so 'recipient' is used instead
 def get_user_profile(request, username):
-    user = CustomUser.objects.get(username=username)
-    return render(request, 'profile.html', {"user":user})
+    recipient = CustomUser.objects.get(username=username)
+    # render passes the recipient object to 'profile.html' template
+    # so 'profile.html' can access the 'recipient' object
+    return render(request, 'profile.html', {"recipient":recipient})

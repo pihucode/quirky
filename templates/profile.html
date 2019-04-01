@@ -4,19 +4,29 @@
 
 {% block content %}
 
-<!-- {% if user.is_authenticated %} -->
-  <p>Profile of {{ user.username }}</p>
-  <p>Contact email: {{ user.email }}</p>
+<!-- user can see their QR code and email if logged in -->
+{% if user.is_authenticated and user.username == recipient.username %}
+  <p>-- Viewing your profile --</p>
+  <p>Profile of {{ recipient.username }}</p>
+
   <p>-- Embedded QR --</p>
   {% load qr_code %}
-  <img src="{% qr_url_from_text request.build_absolute_uri %}" alt="Hello World!">
-  <!-- <img src="{% qr_url_from_text "help me im dying" %}" alt="Hello World!"> -->
+  <img src="{% qr_url_from_text request.build_absolute_uri %}" alt="QR code">
+
   <div>
     <p><a href="{% url 'home' %}">home</a></p>
     <p><a href="{% url 'logout' %}">logout</a></p>
   </div>
-<!-- {% else %} -->
-  <!-- <p>-- Add contact form here --</p> -->
-<!-- {% endif %} -->
+
+{% else %}
+  <!-- others cannot see a user's email -->
+  <!-- NOTE: Optional name field, example: "You are writing to Space Bunny" -->
+
+  <!-- Add form here -->
+
+  <div>
+    <p><a href="{% url 'home' %}">home</a></p>
+  </div>
+{% endif %}
 
 {% endblock %}
