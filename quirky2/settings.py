@@ -122,11 +122,3 @@ STATIC_URL = '/static/'
 AUTH_USER_MODEL = 'users.CustomUser'
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
-
-
-# Additional settings added by Me
-EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'piyobean@gmail.com'
-EMAIL_HOST_PASSWORD = '1q2w3e$R!'
-EMAIL_PORT = 587
