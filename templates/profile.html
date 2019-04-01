@@ -19,10 +19,21 @@
   </div>
 
 {% else %}
-  <!-- others cannot see a user's email -->
+  <!-- NOTE: Remove email after testing -->
+  <!-- others should not be able to see a user's email -->
+  <p>Email: {{ recipient.email }}</p>
+
   <!-- NOTE: Optional name field, example: "You are writing to Space Bunny" -->
 
   <!-- Add form here -->
+  <!-- Form **should** send message to user's email without the sender knowing user's email -->
+  <form method="post">
+      {% csrf_token %}
+      {{ form }}
+      <div class="form-actions">
+        <button type="submit">Send</button>
+      </div>
+  </form>
 
   <div>
     <p><a href="{% url 'home' %}">home</a></p>

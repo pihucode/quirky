@@ -8,6 +8,8 @@ urlpatterns = [
     # ^(shows other profiles as the current user's profile)
     # path('<username>/', views.ProfileView.as_view(), name='user_profile'),
 
-    # display profile of username
-    path('<username>/', views.get_user_profile) #display profile
+    # display profile of <username>
+    path('<username>/', views.get_user_profile),
+    # 'message sent out successfully' page
+    path('success/', views.success, name='success'),
 ]
