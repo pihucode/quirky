@@ -1,20 +1,48 @@
 <!-- templates/home.html -->
 {% extends 'base.html' %}
 
+<!-- Page title -->
 {% block title %}Home{% endblock %}
 
+<!-- Main content -->
 {% block content %}
+<div class='main-container'>
 
-{% if user.is_authenticated %}
-  Welcome, {{ user.username }}!
-  <p>-- Display new messages here --</p>
-  <li><a href="u/{{ user.username }}">Profile</a></li>
-  <p><a href="{% url 'logout' %}">logout</a></p>
-{% else %}
-  <p>You are not logged in</p>
-  <a href="{% url 'login' %}">login</a> |
-  <a href="{% url 'password_reset' %}">forgot password</a> | 
-  <a href="{% url 'signup' %}">signup</a>
-{% endif %}
+  <div class='info-container'>
+    <p class='sub-text'>Slogan here.</p>
+    <p class='grand-title'>WORDLESS. IMPACT. EFFICIENT.</p>
+
+    <p class='top-whitespace'>Blurb about how product helps users.
+      More text to test out line wrap.
+      More text to make sure that line actually wraps.</p>
+  </div>
+
+  <!-- This is where the QR image goes -->
+  <div class='qr-container'>
+    {% load qr_code %}
+    {% qr_from_text "Hello World!" size="L" %}
+
+    <!-- Having difficulties with svg placement -->
+    <!-- Yellow blob -->
+    <!-- <svg class="behind" 
+      width="320"
+      height="320"
+      xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M91.3,-128.6C124.6,-101.5,162.1,-83.2,176.2,-53.9C190.2,-24.7,180.7,15.5,171.2,59C161.7,102.6,152.3,149.6,123.8,154.3C95.2,159.1,47.6,121.5,16.5,98.9C-14.7,76.2,-29.4,68.5,-70,67.6C-110.5,66.8,-177,73,-196,54.3C-214.9,35.6,-186.4,-7.8,-159.6,-40C-132.9,-72.2,-107.9,-93.1,-81.6,-122.6C-55.3,-152,-27.6,-190,0.7,-191C29,-191.9,58,-155.8,91.3,-128.6Z"
+          fill="#fcb900" />
+    </svg> -->
+
+    <!-- Orange blob -->
+    <!-- <svg class="blob behind" xmlns="http://www.w3.org/2000/svg">
+      <g transform="translate(20,20)">
+        <path
+          d="M160.6,-113.9C205,-72.4,235.6,-5.8,225.4,56.7C215.3,119.2,164.5,177.6,105.6,197.7C46.7,217.7,-20.2,199.4,-79.2,169.2C-138.1,139,-189,96.9,-212.3,36.4C-235.7,-24,-231.6,-102.7,-191.6,-143.2C-151.7,-183.6,-75.8,-185.8,-8.9,-178.7C58.1,-171.7,116.2,-155.4,160.6,-113.9Z"
+          fill="#FE840E" />
+      </g>
+    </svg> -->
+
+  </div>
+</div>
 
 {% endblock %}

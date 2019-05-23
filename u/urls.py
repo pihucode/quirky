@@ -1,5 +1,6 @@
 # users/urls.py
 from django.urls import path
+from django.views.generic.base import TemplateView
 from . import views
 
 urlpatterns = [
@@ -9,7 +10,5 @@ urlpatterns = [
     # path('<username>/', views.ProfileView.as_view(), name='user_profile'),
 
     # display profile of <username>
-    path('<username>/', views.get_user_profile),
-    # 'message sent out successfully' page
-    path('success/', views.success, name='success'),
+    path('<username>/', views.get_user_profile, name='u_profile'),
 ]

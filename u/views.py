@@ -12,6 +12,9 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from .forms import ContactForm
 
+#for edit_profile()
+from users.forms import CustomUserChangeForm
+
 # displays profile of the current logged in User
 # class ProfileView(generic.CreateView):
 #     form_class = CustomUserCreationForm
@@ -29,6 +32,7 @@ def get_user_profile(request, username):
 def mail_to(request, recipient):
     if request.method == 'GET':
         form = ContactForm()
+        print('point A')
     else:
         form = ContactForm(request.POST)
         if form.is_valid():
@@ -36,15 +40,19 @@ def mail_to(request, recipient):
             # from_email = form.cleaned_data['from_email']
             message = form.cleaned_data['message'] # body message
             to_email = [recipient.email] # email of the user's profile
+            print('point B')
             try:
                 send_mail(subject, message, '', to_email, fail_silently = False)
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
                 # if message has been sent out successfully,
                 # redirect user to success page
+            # return redirect('success')
+            print('redirect MESSAGE C:')
             return redirect('success')
     return form
 
-def success(request):
+# def success(request):
+    # return HttpResponseRedirect('/success/')
     # return HttpResponse('Thank you for your message.')
-    return HttpResponse('Your message has been sent!')
+    # return HttpResponse('Your message has been sent!')

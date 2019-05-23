@@ -1,13 +1,39 @@
-<!-- templates/signup.html -->
 {% extends 'base.html' %}
 
 {% block title %}Sign Up{% endblock %}
 
+<!-- Main content -->
 {% block content %}
-  <h2>Sign up</h2>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Sign up</button>
-  </form>
+<div class='main-container'>
+
+  <div class='info-container'>
+    <h1 class='grand-title'>Get Started</h1>
+    <p>Sign up now!</p>
+    
+    <p class='sub-text top-whitespace'>Already registered?</p>
+    <p><a href="{% url 'login' %}">Log in</a></p>
+  </div>
+
+  <!-- Sign up form -->
+
+  <div class='form-container'>
+    <form method="post">
+        {% csrf_token %}
+        {% for field in form %}
+          <div class="field">
+              <label for="{{ field.id_for_label }}">{{ field.label_tag }}</label>
+              {{ field }}
+              {% if field.help_text %}
+                <p class="hidden">{{ field.help_text|safe }}</p>
+              {% endif %}
+          {% for error in field.errors %}
+            <p class="feedback">{{ error }}</p>
+          {% endfor %}
+          </div>
+        {% endfor %}
+        <button type="submit">sign up</button>
+      </form>
+  </div>
+
+</div>
 {% endblock %}

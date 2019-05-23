@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Edit Profile{% endblock %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+
+  <!-- Form allows user to change their account details -->
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <div class="form-actions">
+      <button type="submit">Submit</button>
+    </div>
+  </form>
+
+  <div>
+    <p><a href="{% url 'home' %}">home</a></p>
+    <p><a href="{% url 'logout' %}">logout</a></p>
+  </div>
+
+{% else %}
+
+  <p>Please log in.</p>
+
+  <div>
+    <p><a href="{% url 'home' %}">home</a></p>
+  </div>
+{% endif %}
+
+{% endblock %}

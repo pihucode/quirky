@@ -1,0 +1,170 @@
+body {
+    background-color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    /* width: 800px; */
+    align-items: center;
+    justify-content: center;
+    margin: 32px 0;
+    font-family: "Futura PT", "Futura", "Avenir", sans-serif;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between; /* align content on opposite ends */
+    padding: 0;
+    width: 80%;
+    margin: auto; /* center content */
+}
+
+.logo {
+    font-family: "Arial Black", Gadget, sans-serif;
+    font-style: bold;
+    color: violet;
+    font-size: 20px;
+}
+
+.navbar-list {
+    list-style-type: none; /* remove bullets */
+    /* margin-right: 30px; */
+}
+
+.navbar-list li {
+    display: inline; /* orient list horizontally */
+    margin-left: 12px;
+}
+
+a {
+    text-decoration: none; /* remove underline */
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.main-container {
+    width: 80%;
+    margin: auto; /* center content */
+    display: flex;
+    justify-content: space-between; /* align content on opposite ends */
+    flex-flow: row;
+}
+
+.info-container {
+    margin-top: 200px;
+    padding-right: 32px;
+    flex: 5
+}
+
+p {
+    font-size: 16px;
+}
+
+.grand-title {
+    text-transform: uppercase;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.sub-text {
+    font-size: 20px;
+}
+
+h1, h2, p {
+    color: slategray;
+    padding: 0;
+}
+
+.top-whitespace {
+    margin-top: 64px;
+}
+
+.qr-container {
+    margin-top: 132px;
+    /* padding: 64px; */
+    /* width: 200px;
+    height: 200px; */
+    /* background-color: whitesmoke; */
+    flex: 3
+}
+
+.qr {
+    height: 380px;
+    width: 380px;
+    /* border-style: dashed;
+    border-width: 4px;
+    border-color: violet; */
+}
+
+.form-container {
+    margin-top: 48px;
+    padding: 64px;
+    width: 200px;
+    background-color: whitesmoke;
+    flex: 3
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    color: slategray;
+    margin-top: 24px;
+}
+
+input, .form-input {
+    margin-top: 8px;
+    width: 248px;
+    height: 24px;
+    border-radius: 4px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: slategray;
+    font: 16px "Helvetica", "Arial", "sans-serif";
+    color: lightseagreen;
+    padding: 4px;
+}
+
+input:focus {
+    border-color: violet;
+}
+
+.feedback {
+    color: crimson;
+    background-color: rgb(255, 179, 179);
+    border-radius: 1px;
+    border-style: solid;
+    padding: 12px;
+}
+
+.hidden {
+    display: hidden;
+}
+
+button {
+    border: none;
+    color: white;
+    background-color: violet;
+    width: 132px;
+    height: 32px;
+    border-radius: 8px;
+    font-weight: bold;
+    margin: 32px 0;
+}
+
+button:hover {
+    width: 252px;
+    height: 26px;
+    transition-duration: 200ms;
+    cursor: pointer;
+    background-color: lightblue;
+}
+
+.behind {
+    position: absolute;
+    z-index: -1;
+    display: inline;
+}
+
+.blob {
+    width: "400";
+    height: "400";
+}
