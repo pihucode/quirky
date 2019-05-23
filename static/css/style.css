@@ -174,3 +174,16 @@ button:hover {
     width: "400";
     height: "400";
 }
+
+/* scrollbar*/
+::-webkit-scrollbar
+{
+	width: 10px;
+	background-color: rgb(230, 230, 230);
+}
+
+/* the draggable scrolling handle */
+::-webkit-scrollbar-thumb
+{
+	background-color: violet;
+}
