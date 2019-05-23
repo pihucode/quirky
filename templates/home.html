@@ -1,12 +1,29 @@
-<!-- templates/home.html -->
 {% extends 'base.html' %}
-
+{% load static %}
 <!-- Page title -->
 {% block title %}Home{% endblock %}
 
 <!-- Main content -->
 {% block content %}
 <div class='main-container'>
+
+  <!-- Display welcome landing page if user is logged in -->
+  {% if user.is_authenticated %}
+  <div class='info-container'>
+    <p class='grand-title'>Welcome, {{ user.username }}!</p>
+    <!-- Include a clock? -->
+    <p class='sub-text'>Monday, 7:30 AM</p>
+    <!-- Breakfast suggestion based on time of day?? -->
+    <p class='top-whitespace'>Bread and butter.</p>
+  </div>
+
+  <div>
+    <!-- Image source: https://www.pexels.com/photo/close-up-photo-of-owl-with-one-eye-open-1564839/ -->
+    <img class='welcome-owl-img' src="{% static 'images/owl_wink.jpg' %}" alt="Winking owl"/>
+  </div>
+
+  <!-- If user is not logged in, display an 'about' pg for visitors and potential users -->
+  {% else %}
 
   <div class='info-container'>
     <p class='sub-text'>Slogan here.</p>
@@ -43,6 +60,7 @@
     </svg> -->
 
   </div>
-</div>
+  {% endif %}
 
+</div>
 {% endblock %}
