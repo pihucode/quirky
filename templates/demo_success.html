@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+<!-- Main content -->
+{% block content %}
+<div class='main-container'>
+
+    {% if user.is_authenticated %}
+    <!-- Let user know that a demo message has been successfully sent -->
+    <div class='info-container'>
+        <h1 class='grand-title'>Success!</h1>
+        <p class='sub-text'>A demo message has been sent to {{ user.email}} </p>
+    </div>
+
+    {% else %}
+    <div class='info-container'>
+        <h1 class='grand-title'>Oops!</h1>
+        <p class='sub-text'>Looks like you are not logged in.</p>
+    </div>
+    {% endif %}
+
+</div>
+{% endblock %}

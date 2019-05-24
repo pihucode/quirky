@@ -37,8 +37,13 @@ a {
     text-decoration: none; /* remove underline */
 }
 
-a:hover {
+a:hover, .mock-link:hover {
     text-decoration: underline;
+}
+
+.mock-link {
+    text-decoration: underline;
+    color: lightseagreen;
 }
 
 .main-container {

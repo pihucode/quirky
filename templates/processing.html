@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+<!-- Main content -->
+{% block content %}
+<div class='main-container'>
+
+    {% if user.is_authenticated %}
+    <!-- Let user know that their request is being processed -->
+    <div class='info-container'>
+        <h1 class='grand-title'>Processing...</h1>
+        <p class='sub-text'>Please wait while we process your request...</p>
+        <p>You will be redirected to a new page in a few seconds...</p>
+    </div>
+
+    {% else %}
+    <div class='info-container'>
+        <h1 class='grand-title'>Oops!</h1>
+        <p class='sub-text'>Looks like you are not logged in.</p>
+    </div>
+    {% endif %}
+
+</div>
+{% endblock %}

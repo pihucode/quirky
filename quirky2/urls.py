@@ -25,6 +25,7 @@ urlpatterns = [
     path('users/', include('django.contrib.auth.urls')),
     path('u/', include('u.urls')),
     path('qr_code/', include(qr_code_urls, namespace="qr_code")),
+    path('mail/', include('mail.urls')),
     # 'message sent out successfully' page
     path('success/', TemplateView.as_view(template_name='success.html'), name='success'),
 ]

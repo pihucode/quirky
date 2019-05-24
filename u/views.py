@@ -29,6 +29,8 @@ def get_user_profile(request, username):
     form = mail_to(request, recipient)
     return render(request, 'profile.html', {"recipient":recipient, "form":form})
 
+# Loads and validates form
+# Does not render page
 def mail_to(request, recipient):
     if request.method == 'GET':
         form = ContactForm()
@@ -53,6 +55,6 @@ def mail_to(request, recipient):
     return form
 
 # def success(request):
-    # return HttpResponseRedirect('/success/')
+#     return HttpResponseRedirect('/success/')
     # return HttpResponse('Thank you for your message.')
     # return HttpResponse('Your message has been sent!')
