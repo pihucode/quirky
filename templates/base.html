@@ -15,9 +15,8 @@
     <p class='logo'>Quirky QR Messenging</p>
     <ul class='navbar-list'>
       <li><a href="{% url 'home' %}">Home</a></li>
-      {% if user.is_authenticated %}  
-        <li><a href="u/{{ user.username }}">Profile</a></li> 
-        <!-- u_profile gives a 'NoReverseMatch' error -->
+      {% if user.is_authenticated %}
+        <li><a href="{% url 'u_profile' user.username %}">Profile</a></li>
         <li><a href="{% url 'logout' %}">Logout</a></li>
       {% else %}
         <li><a href="{% url 'login' %}">Log in/Get Quirked</a></li>
