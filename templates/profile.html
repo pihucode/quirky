@@ -30,7 +30,7 @@
     <img class='qr' src="{% qr_url_from_text request.build_absolute_uri %}" alt="QR code">
     
     <!-- Trouble positioning svg frame over qr square -->
-    <svg class='behind' viewBox="0 0 100 100" width="350px">
+    <svg class='qr-frame' viewBox="0 0 100 100" width="350px">
         <path d="M25,2 L2,2 L2,25" fill="none" stroke="black" stroke-width="3" />
         <path d="M2,75 L2,98 L25,98" fill="none" stroke="black" stroke-width="3" />
         <path d="M75,98 L98,98 L98,75" fill="none" stroke="black" stroke-width="3" />
