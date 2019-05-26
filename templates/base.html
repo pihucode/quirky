@@ -7,6 +7,8 @@
   <!-- NOTE: ?{% now "U" %} is used to auto reload the css file.
   This should be removed after production. -->
   <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}?{% now "U" %}" />
+  <!-- Load Google fonts, used in style.css -->
+  <link href="https://fonts.googleapis.com/css?family=Lato|Open+Sans&display=swap" rel="stylesheet">
   
   <title>{% block title %}Django Auth Tutorial{% endblock %}</title>
 

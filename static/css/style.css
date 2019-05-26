@@ -1,3 +1,18 @@
+@font-face {
+    font-family: Comfortaa-Bold;
+    src: url(/static/fonts/Comfortaa-Bold.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: Comfortaa-Light;
+    src: url(/static/fonts/Comfortaa-Light.ttf) format('truetype');
+  }
+
+@font-face {
+    font-family: Comfortaa-Regular;
+    src: url(/static/fonts/Comfortaa-Regular.ttf) format('truetype');
+}
+
 body {
     background-color: white;
     font-family: Arial, Helvetica, sans-serif;
@@ -5,7 +20,7 @@ body {
     align-items: center;
     justify-content: center;
     margin: 32px 0;
-    font-family: "Futura PT", "Futura", "Avenir", sans-serif;
+    font-family: "Lato", "Open Sans", "Avenir", Arial, sans-serif;
 }
 
 nav {
@@ -16,11 +31,18 @@ nav {
     margin: auto; /* center content */
 }
 
+nav a {
+    font-family: "Open Sans", "Avenir", Arial, sans-serif;
+}
+
 .logo {
-    font-family: "Arial Black", Gadget, sans-serif;
-    font-style: bold;
+    font-family: "Comfortaa-Bold", "Arial Black", Gadget, sans-serif;
     color: violet;
     font-size: 20px;
+    /* text shadow to make the text appear bolder */
+    /* x-offset | y-offset */
+    text-shadow: -1px 0, 1px 0;
+    /* text-shadow: -0.75px 0, 0.75px 0, 0 0.75px, 0 -0.75px; */
 }
 
 .navbar-list {
@@ -35,10 +57,17 @@ nav {
 
 a {
     text-decoration: none; /* remove underline */
+    color: mediumslateblue;
 }
 
 a:hover, .mock-link:hover {
     text-decoration: underline;
+    /* I cannot differentiate cornflowerblue from mediumslateblue -? */
+    color: cornflowerblue;
+}
+
+a:visited {
+    color: blueviolet;
 }
 
 .mock-link {
@@ -65,9 +94,10 @@ p {
 }
 
 .grand-title {
+    font-family: Comfortaa-Bold, "Open Sans", "Avenir", Arial, sans-serif;
     text-transform: uppercase;
     font-size: 24px;
-    font-weight: bold;
+    font-weight: 500;
 }
 
 .sub-text {
@@ -81,6 +111,10 @@ h1, h2, p {
 
 .top-whitespace {
     margin-top: 64px;
+}
+
+img {
+    width: 100%;
 }
 
 .welcome-owl-img {
@@ -132,6 +166,7 @@ label {
 input, .form-input {
     margin-top: 8px;
     width: 248px;
+    max-width: 100%;
     height: 24px;
     border-radius: 4px;
     border-style: solid;
@@ -174,7 +209,7 @@ button:hover {
     height: 26px;
     transition-duration: 200ms;
     cursor: pointer;
-    background-color: lightblue;
+    background-color: mediumorchid;
 }
 
 .behind {
@@ -199,4 +234,57 @@ button:hover {
 ::-webkit-scrollbar-thumb
 {
 	background-color: violet;
+}
+
+/* Responsive css for MOBILE */
+@media only screen and (max-width: 600px) {
+
+    body {
+        margin: 0;
+    }
+
+    nav {
+        padding: 0 32px;
+        width: 100%;
+        margin: auto; /* center content */
+        /* offset-x | offset-y | blur-radius | spread-radius | color */
+        box-shadow: 0 8px 6px -6px rgba(0,0,0,0.2);
+    }
+
+    p, .grand-title, .sub-text {
+        font-size: 110%;
+    }
+
+    h1, h2, p {
+        text-align: center;
+    }
+
+    .main-container {
+        justify-content: center;
+        flex-flow: column;
+        margin: auto;
+    }
+
+    .info-container, .qr-container {
+        margin: auto;
+        margin-top: 64px;
+        padding-right: 0;
+    }
+
+    .form-container {
+        margin: 0;
+        padding: 64px;
+    }
+
+    form {
+        width: 100%;
+        margin: auto;
+    }
+
+    .welcome-owl-img {
+        margin: 0;
+        margin-top: 64px;
+        width: 85%;
+        padding: 0 32px;
+    }
 }
