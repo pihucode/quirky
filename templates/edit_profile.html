@@ -2,31 +2,30 @@
 
 {% block title %}Edit Profile{% endblock %}
 
+<!-- Main content -->
 {% block content %}
+<div class='main-container'>
 
-{% if user.is_authenticated %}
+  {% if user.is_authenticated %}
 
   <!-- Form allows user to change their account details -->
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <div class="form-actions">
-      <button type="submit">Submit</button>
-    </div>
-  </form>
-
-  <div>
-    <p><a href="{% url 'home' %}">home</a></p>
-    <p><a href="{% url 'logout' %}">logout</a></p>
+  <div class='form-container'>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <div class="form-actions">
+        <button type="submit">Submit</button>
+      </div>
+    </form>
   </div>
 
-{% else %}
-
-  <p>Please log in.</p>
-
-  <div>
-    <p><a href="{% url 'home' %}">home</a></p>
+  {% else %}
+  <!-- Let users know that they should be logged in to edit profile. -->
+  <div class='info-container'>
+    <h1 class='grand-title'>Oops!</h1>
+    <p>Please log in.</p>
   </div>
-{% endif %}
+  {% endif %}
 
+</div>
 {% endblock %}
