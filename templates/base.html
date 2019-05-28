@@ -2,6 +2,7 @@
 
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <!-- NOTE: ?{% now "U" %} is used to auto reload the css file.
@@ -9,28 +10,56 @@
   <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}?{% now "U" %}" />
   <!-- Load Google fonts, used in style.css -->
   <link href="https://fonts.googleapis.com/css?family=Lato|Open+Sans&display=swap" rel="stylesheet">
-  
+  <script type="text/javascript" src="{% static ' js/mainscript.js' %}"></script>
+
   <title>{% block title %}Django Auth Tutorial{% endblock %}</title>
 
   <!-- Navbar -->
   <nav>
     <p class='logo'>Quirky QR Messenging</p>
-    <ul class='navbar-list'>
-      <li><a href="{% url 'home' %}">Home</a></li>
-      {% if user.is_authenticated %}
+
+    <!-- For desktop screens -->
+    <div id='nav-menu'>
+      <!-- Menu toggle icon. 
+        TODO: should be a button with 3 horizontal bars -->
+      <p id="menu-icon" class='sub-text'>Menu</p>
+      <!-- Div slides out once menu icon is clicked -->
+      <div id='nav-display'>
+        <button id='close-button'>X</button>
+        <ul id='navbar-list'>
+          <li><a href="{% url 'home' %}">Home</a></li>
+          {% if user.is_authenticated %}
+          <li><a href="{% url 'u_profile' user.username %}">Profile</a></li>
+          <li><a href="{% url 'logout' %}">Logout</a></li>
+          {% else %}
+          <li><a href="{% url 'login' %}">Log in/Get Quirked</a></li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+
+    <!-- For mobile screens -->
+    <!-- <div id='nav-menu-mobile'>
+      <ul class='navbar-list hidden'>
+        <li><a href="{% url 'home' %}">Home</a></li>
+        {% if user.is_authenticated %}
         <li><a href="{% url 'u_profile' user.username %}">Profile</a></li>
         <li><a href="{% url 'logout' %}">Logout</a></li>
-      {% else %}
+        {% else %}
         <li><a href="{% url 'login' %}">Log in/Get Quirked</a></li>
-      {% endif %}
-    </ul>
+        {% endif %}
+      </ul>
+    </div> -->
+
   </nav>
-  
+
 </head>
+
 <body>
   <main>
     {% block content %}
     {% endblock %}
   </main>
-</body> 
+</body>
+
 </html>

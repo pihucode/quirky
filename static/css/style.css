@@ -45,12 +45,16 @@ nav a {
     /* text-shadow: -0.75px 0, 0.75px 0, 0 0.75px, 0 -0.75px; */
 }
 
-.navbar-list {
+#menu-icon {
+    display: none;
+}
+
+#navbar-list {
     list-style-type: none; /* remove bullets */
     /* margin-right: 30px; */
 }
 
-.navbar-list li {
+#navbar-list li {
     display: inline; /* orient list horizontally */
     margin-left: 12px;
 }
@@ -190,7 +194,7 @@ input:focus {
 }
 
 .hidden {
-    display: hidden;
+    display: none;
 }
 
 button {
@@ -236,6 +240,26 @@ button:hover {
 	background-color: violet;
 }
 
+/* Responsive css for SMALLER SCREEN RESOLUTIONS */
+@media only screen and (max-width: 680px) {
+
+    #menu-icon {
+        display: block;
+        margin: 0;
+        padding: 20px 32px;
+    }
+
+    #menu-icon:hover {
+        cursor: pointer;
+    }
+    
+    /* Display navbar list links onClick event in Javascript */
+    #nav-display {
+        display: none;
+    }
+
+}
+
 /* Responsive css for MOBILE */
 @media only screen and (max-width: 600px) {
 
@@ -244,11 +268,19 @@ button:hover {
     }
 
     nav {
-        padding: 0 32px;
         width: 100%;
         margin: auto; /* center content */
         /* offset-x | offset-y | blur-radius | spread-radius | color */
         box-shadow: 0 8px 6px -6px rgba(0,0,0,0.2);
+    }
+
+    .logo {
+        padding-left: 32px;
+    }
+
+    #menu-icon {
+        margin: auto 0;
+        /* padding: 20px 32px; */
     }
 
     p, .grand-title, .sub-text {
