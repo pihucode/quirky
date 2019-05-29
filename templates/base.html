@@ -8,9 +8,17 @@
   <!-- NOTE: ?{% now "U" %} is used to auto reload the css file.
   This should be removed after production. -->
   <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}?{% now "U" %}" />
+  
   <!-- Load Google fonts, used in style.css -->
   <link href="https://fonts.googleapis.com/css?family=Lato|Open+Sans&display=swap" rel="stylesheet">
-  <script type="text/javascript" src="{% static ' js/mainscript.js' %}"></script>
+  
+  <!-- JQuery script -->
+  <script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+
+  <script type="text/javascript" src="{% static 'js/mainscript.js' %}"></script>
 
   <title>{% block title %}Django Auth Tutorial{% endblock %}</title>
 
