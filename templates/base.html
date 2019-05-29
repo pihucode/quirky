@@ -18,15 +18,11 @@
   <nav>
     <p class='logo'>Quirky QR Messenging</p>
 
-    <!-- For desktop screens -->
+    <!-- Responsive navigation for varying screen sizes -->
     <div id='nav-menu'>
-      <!-- Menu toggle icon. 
-        TODO: should be a button with 3 horizontal bars -->
-      <p id="menu-icon" class='sub-text'>Menu</p>
-      <!-- Div slides out once menu icon is clicked -->
-      <div id='nav-display'>
-        <button id='close-button'>X</button>
-        <ul id='navbar-list'>
+      <!-- For desktop screens -->
+      <div class='desktop-nav'>
+        <ul class='navbar-list'>
           <li><a href="{% url 'home' %}">Home</a></li>
           {% if user.is_authenticated %}
           <li><a href="{% url 'u_profile' user.username %}">Profile</a></li>
@@ -36,21 +32,28 @@
           {% endif %}
         </ul>
       </div>
+
+      <!-- For mobile screens -->
+      <div class='mobile-nav'>
+        <!-- Menu toggle icon. 
+        TODO: should be a button with 3 horizontal bars -->
+        <p id="menu-icon" class='sub-text'>Menu</p>
+        <!-- TODO: Div should slide out once menu icon is clicked -->
+        <div id='nav-display' class='hidden'>
+          <button id='close-button'>&times;</button>
+          <ul class='navbar-list'>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'u_profile' user.username %}">Profile</a></li>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+            {% else %}
+            <li><a href="{% url 'login' %}">Log in/Get Quirked</a></li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+
     </div>
-
-    <!-- For mobile screens -->
-    <!-- <div id='nav-menu-mobile'>
-      <ul class='navbar-list hidden'>
-        <li><a href="{% url 'home' %}">Home</a></li>
-        {% if user.is_authenticated %}
-        <li><a href="{% url 'u_profile' user.username %}">Profile</a></li>
-        <li><a href="{% url 'logout' %}">Logout</a></li>
-        {% else %}
-        <li><a href="{% url 'login' %}">Log in/Get Quirked</a></li>
-        {% endif %}
-      </ul>
-    </div> -->
-
   </nav>
 
 </head>
