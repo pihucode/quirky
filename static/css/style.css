@@ -49,7 +49,7 @@ nav a {
     display: inline;
 }
 
-#menu-icon, .mobile-nav {
+#menuIcon, .mobile-nav {
     display: none;
 }
 
@@ -265,25 +265,25 @@ button:hover {
         display: none;
     }
 
-    #menu-icon {
+    #menuIcon {
         display: block;
         margin: 0;
         padding: 20px 32px;
         padding-right: 0;
     }
 
-    #menu-icon:hover {
+    #menuIcon:hover {
         cursor: pointer;
     }
     
-    #nav-display, #close-button {
+    #navDisplay, #closeButton {
         position: absolute;
         top: 0;
         right: 0;
     }
 
     /* Display navbar list links onClick event in Javascript */
-    #nav-display {
+    #navDisplay {
         background-color: whitesmoke;
         z-index: 10;
         height: 100vh;
@@ -298,12 +298,12 @@ button:hover {
         background-color: mediumorchid;
     }
 
-    #close-button {
+    #closeButton {
         margin: 20px;
         width: 64px;
     }
 
-    #close-button, .navbar-list {
+    #closeButton, .navbar-list {
         padding: 0;
     }
 
@@ -341,7 +341,7 @@ button:hover {
         padding-left: 32px;
     }
 
-    #menu-icon {
+    #menuIcon {
         margin: auto 0;
         padding-right: 32px;
     }

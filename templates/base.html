@@ -45,10 +45,10 @@
       <div class='mobile-nav'>
         <!-- Menu toggle icon. 
         TODO: should be a button with 3 horizontal bars -->
-        <p id="menu-icon" class='sub-text'>Menu</p>
+        <p id="menuIcon" class='sub-text'>Menu</p>
         <!-- TODO: Div should slide out once menu icon is clicked -->
-        <div id='nav-display' class='hidden'>
-          <button id='close-button'>&times;</button>
+        <div id='navDisplay' class='hidden'>
+          <button id='closeButton'>&times;</button>
           <ul class='navbar-list'>
             <li><a href="{% url 'home' %}">Home</a></li>
             {% if user.is_authenticated %}

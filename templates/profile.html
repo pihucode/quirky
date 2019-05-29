@@ -13,26 +13,26 @@
     <h1 class='grand-title'>{{ recipient.username }} 's QR code</h1>
     <p class='sub-text'>Messages will be sent to: {{ recipient.email }}</p>
 
-    <p>
-      <div>
-        <!-- On click, trigger a url/view that would send the email -->
-        <!-- <p class='mock-link'>Send a demo message to your inbox.</p> -->
-        <a class="top-whitespace" href="{% url 'demo_message' %}">
-          Send a demo message to your inbox.</a>
-      </div>
+    <button id='printButton'>Print your QR Code</button>
 
+    <p>
+      <!-- On click, trigger a url/view that would send the email -->
+      <a class="top-whitespace" href="{% url 'demo_message' %}">
+        Send a demo message to your inbox.</a>
       <a href="{% url 'edit_profile' %}">Edit profile</a>
       <a href="{% url 'password_reset' %}">Change password</a>
     </p>
-
   </div>
 
   <!-- User's QR code is displayed here -->
   <div class='qr-container'>
-    {% load qr_code %}
-    <img class='qr' src="{% qr_url_from_text request.build_absolute_uri %}" alt="QR code">
 
-    <!-- Trouble positioning svg frame over qr square -->
+    <div id='printContent'>
+      {% load qr_code %}
+      <img class='qr' src="{% qr_url_from_text request.build_absolute_uri %}" alt="QR code">
+    </div>
+
+    <!-- Decorative frame over QR code -->
     <svg class='qr-frame' viewBox="0 0 100 100" width="350px">
       <path d="M25,2 L2,2 L2,25" fill="none" stroke="black" stroke-width="3" />
       <path d="M2,75 L2,98 L25,98" fill="none" stroke="black" stroke-width="3" />
@@ -53,7 +53,8 @@
 
   <div class='form-container'>
     <!-- Add form here -->
-    <!-- Form sends message to user's email without the sender knowing user's email -->
+    <!-- Form sends message to user's email 
+      without the sender knowing user's email -->
     <form method="post">
       {% csrf_token %}
       {{ form.as_p }}
