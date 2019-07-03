@@ -35,6 +35,13 @@ nav a {
     font-family: "Open Sans", "Avenir", Arial, sans-serif;
 }
 
+nav a:hover {
+        /* Custom underline */
+        border-bottom: 2px solid;
+        padding-bottom: 3px;
+        text-decoration: none;
+}
+
 .logo {
     font-family: "Comfortaa-Bold", "Arial Black", Gadget, sans-serif;
     color: violet;
@@ -69,13 +76,10 @@ a {
 }
 
 a:hover, .mock-link:hover {
-    /* Custom underline */
-    border-bottom: 2px solid;
-    padding-bottom: 3px;
-    /* text-decoration: underline; */
-    /* I cannot differentiate cornflowerblue from mediumslateblue -? */
+    /* bad low contrast: cornflowerblue & mediumslateblue */
     color: cornflowerblue;
     transition-duration: 160ms;
+    text-decoration: underline;
 }
 
 a:visited {
@@ -124,6 +128,11 @@ p {
 h1, h2, p {
     color: slategray;
     padding: 0;
+}
+
+.link-block a {
+    display: block;
+    padding: 6px 0;
 }
 
 .top-whitespace {

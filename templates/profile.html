@@ -15,9 +15,9 @@
 
     <button id='printButton'>Print your QR Code</button>
 
-    <p>
+    <p class='link-block'>
       <!-- On click, trigger a url/view that would send the email -->
-      <a class="top-whitespace" href="{% url 'demo_message' %}">
+      <a href="{% url 'demo_message' %}">
         Send a demo message to your inbox.</a>
       <a href="{% url 'edit_profile' %}">Edit profile</a>
       <a href="{% url 'password_reset' %}">Change password</a>
