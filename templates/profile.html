@@ -13,7 +13,7 @@
     <h1 class='grand-title'>{{ recipient.username }} 's QR code</h1>
     <p class='sub-text'>Messages will be sent to: {{ recipient.email }}</p>
 
-    <button id='printButton'>Print your QR Code</button>
+    <button class='default-button' id='printButton'>Print your QR Code</button>
 
     <p class='link-block'>
       <!-- On click, trigger a url/view that would send the email -->
@@ -58,7 +58,7 @@
     <form method="post">
       {% csrf_token %}
       {{ form.as_p }}
-      <button type="submit">Send</button>
+      <button class="form-button" type="submit">Send</button>
     </form>
   </div>
 

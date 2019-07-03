@@ -224,19 +224,29 @@ button {
     border: none;
     color: white;
     background-color: violet;
-    width: 132px;
-    height: 32px;
     border-radius: 8px;
     font-weight: bold;
-    margin: 32px 0;
 }
 
-button:hover {
-    width: 252px;
-    height: 26px;
+button:hover{
     transition-duration: 200ms;
     cursor: pointer;
     background-color: mediumorchid;
+}
+
+.form-button {
+    width: 132px;
+    height: 32px;
+    margin: 32px 0;
+}
+
+.form-button:hover {
+    width: 252px;
+    height: 26px;
+}
+
+.default-button {
+    padding: 10px 36px;
 }
 
 .behind {
